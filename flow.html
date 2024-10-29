@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Flowchart Example</title>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/jsplumb.min.js"></script>  
+    <style>  
+        .box {  
+            width: 150px;  
+            height: 50px;  
+            border: 1px solid #000;  
+            text-align: center;  
+            line-height: 50px;  
+            position: absolute;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div id="start" class="box" style="top: 20px; left: 20px;">Start</div>  
+    <div id="access" class="box" style="top: 100px; left: 20px;">Access Visio Online</div>  
+    <div id="create" class="box" style="top: 180px; left: 20px;">Create New Diagram</div>  
+    <div id="addShapes" class="box" style="top: 260px; left: 20px;">Add Shapes</div>  
+    <div id="connect" class="box" style="top: 340px; left: 20px;">Connect Shapes</div>  
+    <div id="label" class="box" style="top: 420px; left: 20px;">Label Shapes</div>  
+    <div id="comment" class="box" style="top: 500px; left: 20px;">Commenting Feature</div>  
+    <div id="save" class="box" style="top: 580px; left: 20px;">Save Diagram</div>  
+    <div id="share" class="box" style="top: 660px; left: 20px;">Share Diagram</div>  
+    <div id="embed" class="box" style="top: 740px; left: 20px;">Embed in SharePoint?</div>  
+    <div id="end" class="box" style="top: 820px; left: 20px;">End</div>  
+
+    <script>  
+        jsPlumb.ready(function () {  
+            jsPlumb.setContainer("canvas");  
+
+            jsPlumb.connect({ source: "start", target: "access" });  
+            jsPlumb.connect({ source: "access", target: "create" });  
+            jsPlumb.connect({ source: "create", target: "addShapes" });  
+            jsPlumb.connect({ source: "addShapes", target: "connect" });  
+            jsPlumb.connect({ source: "connect", target: "label" });  
+            jsPlumb.connect({ source: "label", target: "comment" });  
+            jsPlumb.connect({ source: "comment", target: "save" });  
+            jsPlumb.connect({ source: "save", target: "share" });  
+            jsPlumb.connect({ source: "share", target: "embed" });  
+            jsPlumb.connect({ source: "embed", target: "end" });  
+        });  
+    </script>  
+</body>  
+</html>
